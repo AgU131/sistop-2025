@@ -15,13 +15,9 @@ Ejercicio 3
          https://www.youtube.com/shorts/Z9MrM7-briE (eliminar lineas)
          https://www.youtube.com/shorts/FNrb5-n2hw0 (sustituir lineas)
 
-Ejercicio 4
+Ejercicio 4 y 5
     sort: https://www.youtube.com/shorts/KLMH2_1RFBE
-    
-    awk:
-
-Ejercicio 5
-
+    awk: https://www.youtube.com/watch?v=J8Dr3kSyyB0
 
 Ejercicio 6
 
