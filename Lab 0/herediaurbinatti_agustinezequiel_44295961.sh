@@ -7,6 +7,7 @@ cat /proc/cpuinfo | grep "model name" | head -1
 cat /proc/cpuinfo | grep "cpu cores" | wc -l
 
 # EJERCICIO 3: Lista de nombres de usuarios para red social de superhéroes
+curl -s https://raw.githubusercontent.com/dariomalchiodi/superhero-datascience/master/content/data/heroes.csv | grep -v "Identity" | grep -v | cut -d ',' -f2 | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g' > superheroes_usuarios.txt
 curl -s https://raw.githubusercontent.com/dariomalchiodi/superhero-datascience/master/content/data/heroes.csv | cut -d',' -f2 | grep -v "Identity" | grep -v '^$' | tr '[:upper:]' '[:lower:]' | tr ' ' '_' > superheroes_usuarios.txt
 
 # EJERCICIO 4A: Día de máxima temperatura en Córdoba
