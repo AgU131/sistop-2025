@@ -20,7 +20,7 @@ pipeline parse_pipeline(Parser p) {
     while (another_pipe && !error) {
         /*
          * COMPLETAR
-         *
+         *hjhvguvvg
          */
     }
     /* Opcionalmente un OP_BACKGROUND al final */
