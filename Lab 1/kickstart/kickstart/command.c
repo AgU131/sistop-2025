@@ -58,41 +58,41 @@ typedef struct pipeline_s * pipeline{
 }
 
 pipeline pipeline_new(void){
-
+    return NULL;
 }
 
 pipeline pipeline_destroy(pipeline self){
-
+    return NULL;
 }
 
 void pipeline_push_back(pipeline self, scommand sc){
-
+    
 }
 
 void pipeline_pop_front(pipeline self){
-
+   
 }
 
 void pipeline_set_wait(pipeline self, const bool w){
-
+    
 }
 
 bool pipeline_is_empty(const pipeline self){
-
+    return true;
 }
 
 unsigned int pipeline_length(const pipeline self){
-
+    return 0;
 }
 
 scommand pipeline_front(const pipeline self){
-
+    return NULL;
 }
 
 bool pipeline_get_wait(const pipeline self){
-
+    return true;
 }
 
 char * pipeline_to_string(const pipeline self){
-
+    return NULL;
 }
