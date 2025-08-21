@@ -1,11 +1,7 @@
-#include <stdbool.h> 
-#include <stdbool.h> 
-
-
-typedef struct scommand_s * scommand{
-    return NULL;
-
-}
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include "command.h"
 
 scommand scommand_new(void){
     return NULL;
@@ -50,10 +46,6 @@ char * scommand_get_redir_out(const scommand self){
 }
 
 char * scommand_to_string(const scommand self){
-    return NULL;
-}
-
-typedef struct pipeline_s * pipeline{
     return NULL;
 }
 
