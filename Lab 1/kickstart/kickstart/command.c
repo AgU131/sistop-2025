@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "command.h"
+#include <glib.h>
 
 scommand scommand_new(void){
     return NULL;
