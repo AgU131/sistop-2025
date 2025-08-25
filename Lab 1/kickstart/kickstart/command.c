@@ -10,7 +10,7 @@ scommand scommand_new(void){
 scommand scommand_destroy(scommand self){
     return NULL;
 }
-
+//pito
 void scommand_push_back(scommand self, char * argument){
     
 }
