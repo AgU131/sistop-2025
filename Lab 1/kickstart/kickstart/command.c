@@ -46,11 +46,15 @@ void scommand_pop_front(scommand self){
     free(first);
 }
 
-void scommand_set_redir_in(scommand self, char * filename){
-
+void scommand_set_redir_in(scommand self, char *filename) {
+    if (self == NULL) return;
+    g_free(self->redir_in);
+    self->redir_in = filename;
 }
-void scommand_set_redir_out(scommand self, char * filename){
-
+void scommand_set_redir_out(scommand self, char *filename) {
+    if (self == NULL) return;
+    g_free(self->redir_out);
+    self->redir_out = filename;
 }
 
 bool scommand_is_empty(const scommand self){
