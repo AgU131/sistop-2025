@@ -4,12 +4,27 @@
 #include "command.h"
 #include <glib.h>
 
+struct scommand_s {
+    GQueue *args;     
+    char *redir_in;   
+    char *redir_out;  
+};
+
 scommand scommand_new(void){
+<<<<<<< HEAD
 
     scommand new_scommand= malloc(sizeof(struct scommand_s)); 
     new_scommand -> redir_in = NULL;
     new_scommand -> redir_out = NULL;
     return new_scommand;
+=======
+   scommand new = malloc(sizeof(struct scommand_s));
+   new->args = g_queue_new();
+   new->redir_in = NULL;
+   new->redir_out = NULL;
+
+   return new;
+>>>>>>> 7f0c0ec (Scommand_new y struct)
 }
 
 scommand scommand_destroy(scommand self){
