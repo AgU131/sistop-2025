@@ -20,12 +20,14 @@ scommand scommand_new(void){
 }
 
 scommand scommand_destroy(scommand self){
+
     if (self == NULL){
         return NULL;
     }
     else{
         g_queue_free_full(self->args, free);
     }
+
     free(self->redir_in);
     free(self->redir_out);
     free(self);
@@ -33,6 +35,11 @@ scommand scommand_destroy(scommand self){
 }
 
 void scommand_push_back(scommand self, char * argument){
+
+    if (self == NULL || argument == NULL){
+        return void; 
+    }
+    g_queue_push_tail(self->args, argument);
 
 }
 
