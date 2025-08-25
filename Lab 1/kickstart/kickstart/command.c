@@ -67,7 +67,9 @@ bool scommand_is_empty(const scommand self){
 }
 
 unsigned int scommand_length(const scommand self){
-    return 0;
+    if (self == NULL) return 0;
+    unsigned int i = g_queue_get_length(self->args);
+    return i;
 }
 
 char * scommand_front(const scommand self){
