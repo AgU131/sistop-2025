@@ -5,7 +5,11 @@
 #include <glib.h>
 
 scommand scommand_new(void){
-    return NULL;
+
+    scommand new_scommand= malloc(sizeof(struct scommand_s)); 
+    new_scommand -> redir_in = NULL;
+    new_scommand -> redir_out = NULL;
+    return new_scommand;
 }
 
 scommand scommand_destroy(scommand self){
