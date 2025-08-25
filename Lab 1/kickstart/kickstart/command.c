@@ -58,7 +58,12 @@ void scommand_set_redir_out(scommand self, char *filename) {
 }
 
 bool scommand_is_empty(const scommand self){
+    if(self == NULL) {
+        return true;
+    }
+    if (g_queue_is_empty(self->args)){
     return true;
+    }
 }
 
 unsigned int scommand_length(const scommand self){
