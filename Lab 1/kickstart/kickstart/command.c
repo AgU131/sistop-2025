@@ -73,11 +73,20 @@ unsigned int scommand_length(const scommand self){
 }
 
 char * scommand_front(const scommand self){
-    return NULL;
+        if (self == NULL){
+        return NULL;
+    }
+    if (g_queue_is_empty(self->args)){
+        return NULL;
+    }
+    return (char*) g_queue_peek_head(self->args);
 }
 
 char * scommand_get_redir_in(const scommand self){
-    return NULL;
+     if (self == NULL){
+     return NULL;
+     }
+     return self -> redir_in;
 }
 char * scommand_get_redir_out(const scommand self){
     return NULL;
