@@ -83,13 +83,16 @@ char * scommand_front(const scommand self){
 }
 
 char * scommand_get_redir_in(const scommand self){
-     if (self == NULL){
-     return NULL;
-     }
-     return self -> redir_in;
+    if (self == NULL){
+        return NULL;
+    }
+    return self -> redir_in;
 }
 char * scommand_get_redir_out(const scommand self){
-    return NULL;
+    if (self == NULL){
+        return NULL;
+    }
+    return self -> redir_out;
 }
 
 char * scommand_to_string(const scommand self){
