@@ -102,9 +102,21 @@ char * scommand_to_string(const scommand self){
     char *result = g_string_free(str, FALSE); 
     return result;
 }
+typedef struct pipeline_s
+{
+    GQueue *commands;
+    bool wait;
+}piepeline_s;
+
+typedef struct pipeline_s * pipeline;
 
 pipeline pipeline_new(void){
-    return NULL;
+    pipeline result = malloc(sizeof(struct pipeline_s));
+    if (result == NULL){
+        return NULL;
+    }
+    result -> commands = g_queue_new();
+    result -> wait = true;
 }
 
 pipeline pipeline_destroy(pipeline self){
