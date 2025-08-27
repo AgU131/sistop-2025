@@ -140,7 +140,9 @@ void pipeline_push_back(pipeline self, scommand sc){
 }
 
 void pipeline_pop_front(pipeline self){
-   
+   if (self == NULL || pipeline_is_empty(self)) return;
+    struct scommand_s *chead = g_queue_pop_head(self->commands);
+    scommand_destroy(chead);
 }
 
 void pipeline_set_wait(pipeline self, const bool w){
