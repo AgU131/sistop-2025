@@ -88,8 +88,8 @@ char * scommand_get_redir_out(const scommand self){
 }
 
 char * scommand_to_string(const scommand self){
-    if (self == NULL ) return NULL;
-    GString * str = g_string_new (self->name_command);
+   if (self == NULL ) return NULL;
+    GString * str = g_string_new ((char *)self->args->head->data);
     for (GList *iter = self->args->head; iter != NULL; iter = iter->next) {
         g_string_append_printf(str, "%s", (char *)iter->data);
     };
@@ -100,7 +100,7 @@ char * scommand_to_string(const scommand self){
         g_string_append_printf(str, "> %s", self->redir_out);
     }
     char *result = g_string_free(str, FALSE); 
-    return result;
+    return result
 }
 typedef struct pipeline_s
 {
