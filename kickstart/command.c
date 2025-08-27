@@ -133,7 +133,10 @@ pipeline pipeline_destroy(pipeline self) {
 }
 
 void pipeline_push_back(pipeline self, scommand sc){
-    
+    if (self == NULL || sc == NULL) {
+        return;
+    }
+    g_queue_push_tail(self->commands, sc);    
 }
 
 void pipeline_pop_front(pipeline self){
