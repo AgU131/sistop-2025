@@ -34,7 +34,7 @@ scommand scommand_destroy(scommand self){
 
 void scommand_push_back(scommand self, char * argument){
     if (self == NULL || argument == NULL){
-        return void; 
+        return; 
     }
     g_queue_push_tail(self->args, argument);
 }
@@ -58,25 +58,17 @@ void scommand_set_redir_out(scommand self, char *filename) {
 }
 
 bool scommand_is_empty(const scommand self){
-    if(self == NULL) {
-        return true;
-    }
-    if (g_queue_is_empty(self->args)){
-    return true;
-    }
+    return (self == NULL) || g_queue_is_empty(self->args);
 }
+
 
 unsigned int scommand_length(const scommand self){
     if (self == NULL) return 0;
-    unsigned int i = g_queue_get_length(self->args);
-    return i;
+    return g_queue_get_length(self->args);
 }
 
 char * scommand_front(const scommand self){
-        if (self == NULL){
-        return NULL;
-    }
-    if (g_queue_is_empty(self->args)){
+        if (self == NULL || g_queue_is_empty(self->args)){
         return NULL;
     }
     return (char*) g_queue_peek_head(self->args);
