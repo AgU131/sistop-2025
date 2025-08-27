@@ -103,11 +103,10 @@ char * scommand_to_string(const scommand self){
     return result;
 }
 
-typedef struct pipeline_s
-{
+struct pipeline_s {
     GQueue *commands;
     bool wait;
-}pipeline_s;
+};
 
 pipeline pipeline_new(void){
     pipeline result = malloc(sizeof(struct pipeline_s));
