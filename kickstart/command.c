@@ -181,5 +181,25 @@ bool pipeline_get_wait(const pipeline self) {
 }
 
 char * pipeline_to_string(const pipeline self){
-    return NULL;
+    if (self == NULL){
+        return NULL;
+    }
+    Gstring *result = g_string_new(NULL);
+
+    int n = g_queue_get_length(self->commands);
+    
+    for (int i = 0; i < n; i++){
+        char *cmd = g_queue_peek_nth(self->commands, i);
+        g_string_append(result,cmd);
+
+        if (i < n-1) {
+            g_string_append(result, " | ");
+        }
+    } 
+    if (!self -> wait){
+        g_string_append(result, " & ");
+    }
+    char *out = g_strdup(result->str);
+    g_string_free(result, TRUE);
+    return out;
 }
