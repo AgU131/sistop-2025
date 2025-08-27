@@ -152,20 +152,32 @@ void pipeline_set_wait(pipeline self, const bool w){
     }
 }
 
-bool pipeline_is_empty(const pipeline self){
-    return true;
+bool pipeline_is_empty(const pipeline self) {
+    if (self == NULL) {
+        return true;
+    }
+    return g_queue_is_empty(self->commands);
 }
 
-unsigned int pipeline_length(const pipeline self){
-    return 0;
+unsigned int pipeline_length(const pipeline self) {
+    if (self == NULL) {
+        return 0;
+    }
+    return g_queue_get_length(self->commands);
 }
 
-scommand pipeline_front(const pipeline self){
-    return NULL;
+scommand pipeline_front(const pipeline self) {
+    if (self == NULL || g_queue_is_empty(self->commands)) {
+        return NULL;
+    }
+    return (scommand) g_queue_peek_head(self->commands);
 }
 
-bool pipeline_get_wait(const pipeline self){
-    return true;
+bool pipeline_get_wait(const pipeline self) {
+    if (self == NULL) {
+        return false;
+    }
+    return self->wait;
 }
 
 char * pipeline_to_string(const pipeline self){
