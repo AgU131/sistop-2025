@@ -88,7 +88,19 @@ char * scommand_get_redir_out(const scommand self){
 }
 
 char * scommand_to_string(const scommand self){
-    return NULL;
+    if (self == NULL ) return NULL;
+    GString * str = g_string_new (self->name_command);
+    for (GList *iter = self->args->head; iter != NULL; iter = iter->next) {
+        g_string_append_printf(str, "%s", (char *)iter->data);
+    };
+    if (self->redir_in != NULL) {
+        g_string_append_printf(str, "< %s", self->redir_in);
+    }
+    if (self->redir_out != NULL) {
+        g_string_append_printf(str, "> %s", self->redir_out);
+    }
+    char *result = g_string_free(str, FALSE); 
+    return result;
 }
 
 pipeline pipeline_new(void){
