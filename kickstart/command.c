@@ -100,7 +100,7 @@ char * scommand_to_string(const scommand self){
         g_string_append_printf(str, "> %s", self->redir_out);
     }
     char *result = g_string_free(str, FALSE); 
-    return result
+    return result;
 }
 
 typedef struct pipeline_s
@@ -116,9 +116,20 @@ pipeline pipeline_new(void){
     }
     result -> commands = g_queue_new();
     result -> wait = true;
+    return result;
 }
 
-pipeline pipeline_destroy(pipeline self){
+pipeline pipeline_destroy(pipeline self) {
+    if (self == NULL) {
+        return NULL;
+    }
+    while (!g_queue_is_empty(self->commands)) {
+        scommand p = g_queue_pop_head(self->commands);
+        scommand_destroy(p);
+    }
+    g_queue_free(self->commands);
+    free(self);
+
     return NULL;
 }
 
