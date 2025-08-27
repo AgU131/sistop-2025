@@ -145,8 +145,11 @@ void pipeline_pop_front(pipeline self){
     scommand_destroy(chead);
 }
 
+
 void pipeline_set_wait(pipeline self, const bool w){
-    
+    if (self != NULL){
+        self -> wait = w;  
+    }
 }
 
 bool pipeline_is_empty(const pipeline self){
