@@ -184,7 +184,7 @@ char * pipeline_to_string(const pipeline self){
     if (self == NULL){
         return NULL;
     }
-    Gstring *result = g_string_new(NULL);
+    GString *result = g_string_new(NULL);
 
     int n = g_queue_get_length(self->commands);
     
